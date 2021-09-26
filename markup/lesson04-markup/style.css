@@ -1,0 +1,202 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+    box-sizing: inherit;
+}
+
+.wrapper {
+    width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Первый уровень */
+
+.box-table {
+    width: 600px;
+    height: 550px;
+    background-color: #0d5825;
+    font-family: 'Times', serif;
+    font-size: 25px;
+    color: #fff;
+    padding: 10px 20px 30px;
+    text-align: center;
+    position: relative;
+}
+
+.quote p {
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.quote footer {
+    font-style: italic;
+}
+
+.card {
+    width: 150px;
+    position: absolute;
+    transition: bottom 0.5s ease;
+}
+
+.card:nth-child(1) {
+    bottom: 70px;
+    right: 170px;
+    transform: rotate(8deg);
+    z-index: 3;
+}
+
+.card:nth-child(2) {
+    bottom: 83px;
+    right: 220px;
+    transform: rotate(-10deg);
+    z-index: 2;
+}
+
+.card:nth-child(3) {
+    bottom: 89px;
+    right: 270px;
+    transform: rotate(-25deg);
+    z-index: 1;
+}
+
+.card:hover {
+    bottom: 100px;
+}
+
+/* Второй уровень */
+
+.box-boxes {
+    width: 135px;
+    height: 135px;
+    position: relative;
+}
+
+.box-boxes div {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+}
+
+.box-red {
+    background: #ff8888;
+}
+
+.box-blue {
+    background: #7e8aeb;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.box-green {
+    background: #4def99;
+    bottom: 0;
+    right: 0;
+}
+
+/* Третий уровень */
+
+.box-menu {
+    width: 478px;
+    height: 452px;
+    border: grey 1px solid;
+    position: relative;
+    overflow: hidden;
+}
+
+.container {
+    font-family: 'Times', serif;
+    font-size: 16px;
+    color: #fff;
+    text-transform: uppercase;
+    background-color: #808080;
+    width: 245px;
+    height: 100%;
+    position: absolute;
+    padding-top: 30px;
+    padding-left: 25px;
+    left: -215px;
+    transition: left .5s ease-in;
+}
+
+.container:hover {
+    left: 0;
+}
+
+.container li {
+    list-style-type: none;
+    line-height: 2;
+    position: relative;
+}
+
+.container li::before {
+    content: "";
+    width: 11px;
+    height: 11px;
+    background: #ffa502;
+    border: #000000 3px solid;
+    position: absolute;
+    transform: rotate(45deg) translate(-50%, -50%);
+    top: 54%;
+    left: -25px;
+}
+
+.container a {
+    text-decoration: none;
+    color: #fff;
+    transition: color .3s ease-in;
+}
+
+.container a:hover {
+    color: #ffa502;
+}
+
+.menu-title {
+    position: absolute;
+    transform: rotate(90deg);
+    right: -30px;
+    top: 50%;
+    opacity: 1;
+    transition: opacity .3s ease-in, visibility .3s;
+}
+
+.container:hover .menu-title {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Кто совсем молодец */
+
+@keyframes runningbox {
+    25% {
+        transform:translate(0,250px);
+        background: #0000ff;
+    }
+    50% {
+        transform: translate(250px,250px);
+        background: #008000;
+    }
+    75% {
+        transform: translate(250px,0);
+        background: #ffff00;
+    }
+}
+
+.box-animation {
+    width: 350px;
+    height: 350px;
+    position: relative;
+}
+
+.box-run {
+    animation: runningbox 4s ease infinite;
+    width: 100px;
+    height: 100px;
+    background: #ff0000;
+}

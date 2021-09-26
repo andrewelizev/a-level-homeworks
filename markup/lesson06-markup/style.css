@@ -1,0 +1,425 @@
+/* Общие стили */
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    vertical-align: top;
+}
+
+/* ============================= */
+
+.wrapper {
+    width: 100%;
+    color: #000;
+    font-size: 14px;
+}
+
+.header {
+    background: #d3b714;
+}
+
+.header-container {
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+}
+
+.main-menu {
+    display: flex;
+    justify-content: flex-end;
+    flex-grow: 1;
+    margin-left: 15px;
+    align-items: center;
+}
+
+/* =============================== Burger-menu */
+
+/* скрываем чекбокс */
+#menu-toggle {
+    opacity: 0;
+}
+
+/* стилизуем кнопку */
+.menu-btn {
+    display: flex;
+    position: relative;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+/* добавляем "гамбургер" */
+.menu-btn > span,
+.menu-btn > span::before,
+.menu-btn > span::after {
+    display: block;
+    position: absolute;
+    right: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #616161;
+    transition-duration: .25s;
+}
+.menu-btn > span::before {
+    content: '';
+    top: -10px;
+}
+.menu-btn > span::after {
+    content: '';
+    top: 10px;
+}
+
+/* контейнер меню */
+.menu-container {
+    display: block;
+    position: fixed;
+    visibility: hidden;
+    top: 0;
+    right: -100%;
+    width: 300px;
+    height: 100%;
+    transition-duration: .25s;
+}
+
+.menu-box {
+    margin: 0;
+    padding: 80px 0;
+    list-style: none;
+    text-align: center;
+    background-color: #ECEFF1;
+    box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
+}
+
+/* элементы меню */
+.menu-item {
+    display: block;
+    padding: 12px 24px;
+    color: #333;
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    /* transition-duration: .25s; */
+}
+.menu-item:hover {
+    background-color: #CFD8DC;
+}
+
+#menu-toggle:checked ~ .menu-btn > span {
+    transform: rotate(-45deg);
+}
+
+#menu-toggle:checked ~ .menu-btn > span::before {
+    opacity: 1;
+    top: 0;
+    transform: rotate(90deg);
+}
+
+#menu-toggle:checked ~ .menu-btn > span::after {
+    top: 0;
+    transform: rotate(0);
+}
+
+#menu-toggle:checked ~ .menu-container {
+    visibility: visible;
+    right: 0;
+}
+
+/* =============================== Burger-menu */
+
+.main {
+    text-align: center;
+    padding-top: 10px;
+}
+
+.main-section {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.main h1 {
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+.works {
+    padding-bottom: 10px;
+}
+
+.col {
+    padding: 5px;
+}
+
+.work-item {
+    border: 2px solid #8e8e8e;
+    background: #fff;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.work-img {
+    border: 6px solid #c7b7b7;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+.work-item h3 {
+    margin-bottom: 10px;
+}
+
+.work-item p {
+    margin-bottom: 20px;
+}
+
+.work-item a {
+    display: block;
+    width: 100%;
+    background: #685174;
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 20px;
+    border-radius: 2em;
+}
+
+.aside-left {
+    background: #c798b9;
+    padding: 10px 5px;
+}
+
+.aside-right {
+    background: #9cb1c7;
+    padding: 10px 5px;
+}
+
+.footer {
+    background: #86ec86;
+    padding: 10px 5px;
+    text-align: center;
+}
+
+@media (min-width: 576px) {
+    
+    .wrapper {
+        font-size: 16px;
+    }
+    
+    .work-item {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .work-img {
+        border-width: 12px;
+        margin-right: 10px;
+        width: 150px;
+        height: 150px;
+        flex-shrink: 0;
+    }
+
+    .work-inner {
+        display: flex;
+        flex-direction: column;
+        align-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    .work-item h3 {
+        margin-bottom: 10px;
+        flex-grow: 0;
+    }
+    
+    .work-item p {
+        margin-bottom: 20px;
+        flex-grow: 1;
+    }
+
+    .work-item a {
+        max-width: 60px;
+    }
+
+}
+
+@media (min-width: 768px) {
+
+    .header-container {
+        padding: 20px 25px;
+        align-items: center;
+    }
+
+    .main {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .main-section {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+    
+    .works {
+        display: flex;
+        flex-wrap: wrap;
+        padding-bottom: 10px;
+        margin-left: -10px;
+        margin-right: -10px;
+    }
+
+    .col {
+        width: 50%;
+        padding: 5px;
+    }
+
+    .work-item {
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .work-img {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto 10px;
+    }
+
+    .work-inner {
+        flex-grow: 1;
+        min-height: 100%;
+    }
+
+    .work-item a {
+        width: auto;
+    }
+
+    .aside {
+        flex: 1 0 50%;
+    }
+}
+
+@media (min-width: 992px) {
+    
+    .wrapper {
+        /* min-height: 100vh; */
+        font-size: 16px;
+        /* justify-content: space-between; */
+    }
+    
+    .header {
+        margin-bottom: 0;
+    }
+
+    .header-container {
+        padding: 20px 25px;
+        align-items: center;
+    }
+
+    .header-logo img {
+        width: 180px;
+    }
+
+    /* =================== menu */
+
+    .main-menu {
+        margin-right: -10px;
+    }
+    
+    .menu-btn {
+        display: none;
+    }
+
+    .menu-container {
+        position: static;
+        visibility: visible;
+    }
+
+    .menu-box {
+        display: flex;
+        justify-content: flex-end;
+        padding: 0;
+        list-style: none;
+        text-align: center;
+        background: none;
+        box-shadow: none;
+    }
+
+    .menu-box li {
+        padding: 0 10px;
+    }
+
+    .menu-item {
+        display: block;
+        padding: 0;
+        color: #000;
+        font-size: inherit;
+        font-weight: inherit;
+        text-decoration: none;
+    }
+    .menu-item:hover {
+        background: none;
+    }
+
+    /* ============================== menu */
+    
+    .main {
+        padding-top: 0;
+    }
+
+    .main-section {
+        padding-top: 10px;
+    }
+
+    .work-item {
+        transition: transform 0.1s ease-in;
+    }
+    
+    .work-item:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 10px #000;
+    }
+
+    .main {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+
+    .aside {
+        flex: 0 0 210px;
+     }
+
+     .aside-left {
+        order: -1;
+     }
+
+}
+
+@media (min-width: 1200px) {
+    
+    .col {
+        width: 33.333%;
+    }
+
+    .work-img {
+        width: 100px;
+        height: 100px;
+    }
+}

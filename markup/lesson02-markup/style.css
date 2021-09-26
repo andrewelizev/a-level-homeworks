@@ -1,0 +1,64 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+    box-sizing: inherit;
+}
+
+/* Первый уровень */
+
+.quote__text {
+    color: green;
+}
+
+/* Второй уровень */
+
+.holder a[href^='https'] {
+    color: red;
+}
+
+.list > li:last-child a {
+    background-color: blue;
+}
+
+.list + p {
+    font-size: 26px;
+}
+
+/* Второй уровень («работаю с css-ом») */
+
+.container > h3:first-child {
+    color: pink;
+}
+
+#greycol {
+    color: grey;
+}
+
+.container div > p {
+    color: red;
+}
+
+.container p:nth-last-child(2) {
+    color: green;
+}
+
+.yellow {
+    color: yellow;
+}
+
+/* Кто совсем молодец («по желанию») */
+
+.bg-box {
+    width: 500px;
+    height: 300px;
+    background: url('images/house.jpg') center/50% no-repeat,
+                url('images/lamp.png') top/20px repeat-x,
+                url('images/grass.png') bottom/120px repeat-x,
+                url('images/donut.png') right/20px repeat-y,
+                url('images/hedgehog.png') left/20px repeat-y;
+    background-color: green;    
+}

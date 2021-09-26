@@ -1,0 +1,195 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+    box-sizing: inherit;
+    padding: 0;
+}
+
+.wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+img {
+    max-width: 100%;
+    height: 100%;
+    vertical-align: top;
+}
+
+/* Первый уровень («делаем каркас») */
+
+.wrapper-ex {
+    min-height: 100vh;
+    color: #000;
+    font-size: 16px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    overflow: hidden;
+    position: relative;
+}
+
+.header {
+    background: #d3b714;
+}
+
+.header-container {
+    padding: 20px 25px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-logo img {
+    width: 180px;
+}
+
+.nav .menu {
+    display: flex;
+    list-style: none;
+}
+
+.nav .menu-item {
+    padding: 0 10px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #000;
+} 
+
+.main {
+    display: flex;
+    flex-grow: 1;
+}
+
+.main section {
+    padding: 15px;
+}
+
+.aside {
+    flex: 0 0 210px;
+}
+
+.aside-left {
+    background: #c798b9;
+    order: -1;
+}
+
+.aside-right {
+    background: #9cb1c7;
+}
+
+.footer {
+    background: #86ec86;
+}
+
+/* Второй уровень («наполняем контентом») */
+
+.main h1 {
+    text-transform: uppercase;
+}
+
+.works {
+    padding-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col {
+    width: 33.333%;
+    padding: 5px;
+}
+
+.work-item {
+    height: 100%;
+    border: 2px solid #8e8e8e;
+    background: #fff;
+    border-radius: 20px;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.1s ease-in;
+}
+
+.work-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px #000;
+}
+
+.work-img {
+    border: 12px solid #c7b7b7;
+    border-radius: 50%;
+    max-width: 115px;
+    height: 115px;
+    flex-grow: 0;
+}
+
+.work-item h3 {
+    margin-bottom: 0;
+}
+
+.work-item p {
+    flex-grow: 1;
+}
+
+.work-item a {
+    background: #685174;
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 20px;
+    border-radius: 2em;
+}
+
+/* Третий уровень («только флекс») */
+
+.holder {
+    width: 900px;
+    border: 6px solid #000;
+    border-radius: 50px 50px 0 0;
+    font-size: 30px;
+    text-align: center;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.item {
+    padding: 40px 0 45px 0;
+    width: 33.333%;
+}
+
+.item:nth-child(1) {
+    background: #fd644d;
+    width: 50%;
+}
+
+.item:nth-child(2) {
+    background: #4983b2;
+    order: 4;
+}
+
+.item:nth-child(3) {
+    background: #663797;
+    order: 3;
+}
+
+.item:nth-child(4) {
+    background: #0e7f12;
+    order: 5;
+}
+
+.item:nth-child(5) {
+    background: #fda429;
+    order: 2;
+    width: 50%;
+}

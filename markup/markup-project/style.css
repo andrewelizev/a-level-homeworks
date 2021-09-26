@@ -1,0 +1,1022 @@
+/* ---------- Initialize ---------- */
+html {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+*,
+::before,
+::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    max-width: 100%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #727272;
+    line-height: 1.64em;
+}
+
+h1,
+h2 {
+    font-weight: 500;
+    color: #000;
+}
+
+h1 {
+    font-size: 30px;
+}
+
+h2 {
+    font-size: 26px;
+    line-height: 1;
+}
+
+img {
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    vertical-align: top;
+}
+
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.btn {
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #fff;
+    text-decoration: none;
+    background: #34547A;
+    padding: 10px 20px;
+    border: none;
+}
+
+/* ---------- Header ---------- */
+
+.header {
+    background: #EEEFF1;
+    padding: 20px 0;
+}
+
+.container-nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    /* position: relative; */
+}
+
+.header-logo {
+    width: 70px;
+}
+
+.hamburger-menu {
+    flex-grow: 1;
+    position: relative;
+}
+
+/* <<<<<<<<<< Hamburger menu ========== */
+
+#menu-toggle {
+    opacity: 0;
+    visibility: hidden;
+}
+
+#menu-toggle:checked ~ .menu-btn > span {
+    transform: rotate(45deg);
+}
+
+#menu-toggle:checked ~ .menu-btn > span::before {
+    top: 0;
+    transform: rotate(0);
+}
+
+#menu-toggle:checked ~ .menu-btn > span::after {
+    top: 0;
+    transform: rotate(90deg);
+}
+
+#menu-toggle:checked ~ .menu-box {
+    visibility: visible;
+    right: 0;
+}
+
+.menu-btn {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    z-index: 1;
+    /* border: 1px solid black; */
+}
+
+.menu-btn span::before,
+.menu-btn span,
+.menu-btn span::after {
+    position: absolute;
+    height: 3px;
+    background-color: #616161;
+    transition-duration: .25s;
+}
+
+.menu-btn span {
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    right: 0;
+}
+
+.menu-btn span::before,
+.menu-btn span::after {
+    left: 0;
+    right: 0;
+}
+
+.menu-btn span::before {
+    content: "";
+    top: -12px;
+}
+
+.menu-btn span::after {
+    content: "";
+    top: 12px;
+}
+
+.menu-box {
+    position: fixed;
+    visibility: hidden;
+    top: 0;
+    right: -100%;
+    width: 200px;
+    height: 100%;
+    margin: 0;
+    padding: 60px 0;
+    background-color: #EEEFF1;
+    box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
+    transition-duration: .25s;
+}
+
+.menu-list {
+    list-style: none;
+}
+
+.menu-item {
+    display: block;
+    padding: 12px 24px;
+    color: #727272;
+    text-decoration: none;    
+    transition-duration: .25s;
+    text-transform: uppercase;
+}
+
+.menu-item:hover {
+    color: #34547A;
+}
+
+/* ========== Hamburger menu >>>>>>>>>> */
+
+/* ---------- Intro ---------- */
+
+.intro {
+    background: #EEEFF1;
+    padding-bottom: 20px;
+}
+
+.intro-col {
+    text-align: center;
+}
+
+.intro-img {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.intro-content p {
+    margin-bottom: 20px;
+}
+
+/* ---------- About ---------- */
+
+.about {
+    padding: 20px 0;
+}
+
+.about-inner {
+    text-align: center;
+}
+
+.about h2 {
+    margin-bottom: 20px;
+}
+
+/* ---------- Projects ---------- */
+
+.projects {
+    background: #34547A;
+    padding: 20px 0;
+}
+
+.projects-inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.projects-col {
+    padding: 15px;
+}
+
+.projects-content {
+    color: #fff;
+    padding-left: 45px;
+    background-image: url('images/project.svg');
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-size: 40px;
+}
+
+.projects-content h3 {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.projects-content p {
+    font-size: 12px;
+}
+
+/* ---------- Skills ---------- */
+
+.skills {
+    padding: 20px 0 0;
+}
+
+.skills-inner {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.skills-col {
+    padding: 10px;
+}
+
+.my-skills {
+    text-align: center;
+}
+
+.my-skills h2 {
+    margin-bottom: 20px;
+}
+
+.my-skills .line {
+    position: relative;
+    width: 100%;
+    height: 4px;
+    background: #c4c4c4;
+    margin-bottom: 20px;
+}
+
+.my-skills .line::before {
+    content: "";
+    position: absolute;
+    width: 80%;
+    left: 0;
+    height: 4px;
+    background: #34547a;
+    z-index: 10;
+}
+
+.my-photo {
+    width: 200px;
+    margin: 0 auto;
+}
+
+/* ---------- How ---------- */
+
+.how-work {
+    background: #eeeff1;
+    padding: 20px 0;
+}
+
+.how-inner {
+    text-align: center;
+}
+
+.how-inner h2 {
+    margin-bottom: 20px;
+}
+
+.how-inner p {
+    margin-bottom: 15px;
+}
+
+.img-video {
+    position: relative;
+}
+
+.img-video::after {
+    content: "";
+    background: url(images/play-button.png) 50%/15% no-repeat;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* ---------- Potfolio ---------- */
+
+.portfolio {
+    padding-top: 20px;
+}
+
+.portfolio-inner {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.portfolio-col {
+    width: 100%;
+}
+
+.portfolio-item {
+    position: relative;
+}
+
+.portfolio-item::after {
+    visibility: hidden;
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: url(images/eye.svg) 50% 50%/20% no-repeat, #34547a;
+    opacity: 1;
+    transition: opacity .2s ease-in;
+}
+
+.portfolio-item:hover::after {
+    visibility: visible;
+    opacity: 0.8;
+}
+
+/* ---------- Clients ---------- */
+
+.clients {
+    padding: 20px 0;
+}
+
+.clients-inner {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.clients-col {
+    padding: 5px;
+    width: 50%;
+}
+
+/* ---------- Order ---------- */
+
+.order {
+    background: #eeeff1;
+    padding: 20px 0;
+}
+
+.order-inner {
+    text-align: center;
+}
+
+.order-inner h2 {
+    margin-bottom: 20px;
+    font-size: 26px;
+}
+
+.order-inner p {
+    margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="email"] {
+    border: 0;
+    outline: 0;
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.order-form textarea {
+    border: 0;
+    outline: 0;
+    width: 100%;
+    height: 120px;
+    padding: 10px;
+    margin-bottom: 10px;
+    resize: none;
+}
+
+input::placeholder,
+textarea::placeholder {
+    font-size: 14px;
+}
+
+/* ---------- Footer ---------- */
+
+.footer {
+    background: #34547a;
+    padding: 20px 0;
+}
+
+.footer-inner {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    color: #fff;
+}
+
+.footer-col {
+    width: 100%;
+    padding: 10px;
+}
+
+.footer-author h3 {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.footer-social {
+    display: flex;
+    justify-content: space-between;
+}
+
+@media (min-width: 600px) {
+
+    /* ---------- Skills ---------- */
+
+    .my-skills {
+        width: 400px;
+        margin: 0 auto;
+    }
+    
+    .my-photo {
+        width: 400px;
+        margin: 0 auto;
+    }
+
+    /* ---------- Potfolio ---------- */
+
+    .portfolio-col {
+        width: 50%;
+    }
+
+    /* ---------- Clients ---------- */
+
+    .clients-inner {
+        justify-content: center;
+    }
+
+    .clients-col {
+        padding: 5px;
+        width: 33.333%;
+    }
+
+    /* ---------- Footer ---------- */
+
+    .footer-social {
+        justify-content: flex-end;
+    }
+
+    .footer-social-img {
+        padding: 0 10px;
+    }
+
+}
+
+@media (min-width: 768px) {
+    
+    /* ---------- Clients ---------- */
+
+    .clients-col {
+        padding: 5px;
+        width: 25%;
+    }
+
+    /* ---------- Order ---------- */
+
+    .order-form {
+        width: 540px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .form-name {
+        width: 50%;
+        padding: 0 5px;
+    }
+
+    .form-email {
+        width: 50%;
+        padding: 0 5px;
+    }
+
+    .form-text {
+        width: 100%;
+        padding: 0 5px;
+    }
+
+    input[type="text"],
+    input[type="email"] {
+        width: 100%;
+        height: 50px;
+        padding: 10px;
+    }
+
+    /* ---------- Footer ---------- */
+
+    .footer-inner {
+        flex-direction: row;
+    }
+    
+}
+
+@media (min-width: 992px) {
+
+    h1 {
+        margin-top: 0;
+    }
+    
+    /* ---------- Header ---------- */
+
+    #menu-toggle,
+    .menu-btn
+    {
+        display: none;
+    }
+
+    .menu-box {
+        position: static;
+        visibility: visible;
+        width: 100%;
+        padding: 0;
+        background: none;
+        box-shadow: none;
+        transition: none;
+    }
+
+    .menu-list {
+        display: flex;
+        justify-content: flex-end;
+        margin-right: -21px;
+    }
+
+    .menu-box li {
+        padding: 0 21px;
+    }
+
+    .menu-item {
+        padding: 0;
+        color: #000;
+        transition: none;
+        letter-spacing: .1em;
+    }
+
+    .menu-item:hover,
+    .active {
+        color: #34547A;
+    }
+
+    /* ---------- Intro ---------- */
+
+    .intro {
+        padding-bottom: 40px;
+    }
+
+    .intro-inner {
+        display: flex;
+        align-items: center;
+    }
+
+    .intro-img {
+        min-width: 250px;
+    }
+
+    .intro-content {
+        text-align: left;
+        padding-left: 50px;
+        margin: auto 0;
+    }
+
+    .intro-content p {
+        margin-bottom: 20px;
+    }
+
+    /* ---------- About ---------- */
+
+    .about {
+        padding: 40px 0;
+    }
+
+    .about-inner {
+        max-width: 540px;
+        margin: 0 auto;
+    }
+
+    /* ---------- Skills ---------- */
+
+    .skills {
+        padding: 40px 0;
+    }
+
+    .skills-inner {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .skills-col {
+        width: 50%;
+        padding: 10px;
+    }
+
+    .my-skills {
+        text-align: left;
+    }
+
+    .my-photo {
+        height: 100%;
+        margin: 0 auto;
+    }
+
+    /* ---------- How ---------- */
+
+    .how-work {
+        padding: 40px 0;
+    }
+
+    .how-inner {
+        max-width: 540px;
+        margin: 0 auto 20px;
+        text-align: center;
+    }
+
+    .how-inner h2 {
+        margin-bottom: 20px;
+        font-size: 26px;
+    }
+
+    .img-video::after {
+        content: "";
+        background: url(images/play-button.png) 50%/100px no-repeat;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    /* ---------- Potfolio ---------- */
+
+    .portfolio-col {
+        width: 33.333%;
+        flex-grow: 1;
+    }
+
+    /* ---------- Order ---------- */
+
+    .order {
+        padding: 40px 0;
+    }
+
+    .order-inner {
+        width: 540px;
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 1200px) {
+    
+    .wrapper {
+        font-size: 16px;
+    }
+    
+    h1, h2 {
+        margin: 0;
+    }
+
+    h1 {
+        font-size: 48px;
+    }
+    
+    h2 {
+        font-size: 32px;
+    }
+    
+    .container {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .btn {
+        padding: 25px 41px;
+    }
+    
+    /* ---------- Header ---------- */
+
+    .header {
+        background: #EEEFF1;
+        padding: 57px 0;
+    }
+
+    .header-logo {
+        width: 96px;
+    }
+
+    /* ---------- Intro ---------- */
+
+    .intro {
+        padding: 83px 0 146px;
+    }
+
+    .intro-img {
+        width: 357px;
+        margin-left: 82px;
+    }
+
+    .intro-content {
+        padding-left: 0;
+        margin-left: 130px;
+    }
+
+    .intro-content h1 {
+        margin-bottom: 60px;
+    }
+
+    .intro-content p {
+        margin-bottom: 60px;
+    }
+
+    /* ---------- About ---------- */
+
+    .about {
+        padding: 119px 10px 100px;
+    }
+
+    .about-inner {
+        width: 540px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .about-inner h2 {
+        font-weight: 500;
+        color: #000;
+        margin-bottom: 50px;
+    }
+
+    /* ---------- Projects ---------- */
+
+    .projects {
+        padding: 100px 10px;
+    }
+
+    .projects-inner {
+        margin-right: -30px;
+    }
+
+    .projects-col {
+        width: 16.666%;
+        padding: 0;
+    }
+
+    .projects-content {
+        background: url('images/project.svg') no-repeat;
+        padding-left: 70px;
+    }
+
+    .projects-content h3 {
+        font-size: 21px;
+        font-weight: 500;
+        margin: 0 ;
+    }
+
+    .projects-content p {
+        margin: 0;
+        font-size: 16px;
+    }
+
+    /* ---------- Skills ---------- */
+
+    .skills {
+        padding: 102px 10px 101px;
+    }
+
+    .skills-inner {
+        align-items: flex-start;
+    }
+
+    .skills-col {
+        padding: 0;
+    }
+
+    .my-skills {
+        width: auto;
+        padding: 102px 0 61px;
+        margin: 0;
+    }
+
+    .my-skills h2 {
+        margin-bottom: 50px;
+        line-height: 1;
+    }
+
+    .my-skills p {
+        margin-bottom: 20px;
+        line-height: 1;
+    }
+
+    .my-skills .line {
+        width: 445px;
+        margin-bottom: 30px;
+    }
+
+    .my-photo {
+        width: 555px;
+        height: 450px;
+    }
+
+    /* ---------- How ---------- */
+
+    .how-work {
+        padding: 100px 0;
+    }
+
+    .how-inner {
+        max-width: 540px;
+        margin: 0 auto 57px;
+        text-align: center;
+    }
+
+    .how-inner h2 {
+        margin-bottom: 50px;
+        font-size: 32px;
+    }
+
+    .img-video::after {
+        background-size: 100px;
+    }
+
+    /* ---------- Potfolio ---------- */
+
+    .portfolio {
+        padding-top: 28px;
+    }
+
+    .portfolio-col {
+        width: 25%;
+    }
+
+    .portfolio-item {
+        position: relative;
+        height: 100%;
+    }
+
+    /* ---------- Clients ---------- */
+
+    .clients {
+        padding: 72px 0 100px;
+    }
+
+    .clients-inner {
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+
+    .clients-col {
+        width: 25%;
+        padding: 0 15px;
+    }
+
+    /* ---------- Order ---------- */
+    
+    .order {
+       padding: 100px 0;
+    }
+
+    .order-inner {
+        max-width: 540px;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .order-inner h2 {
+        margin-bottom: 50px;
+        font-size: 32px;
+    }
+
+    .order-inner p {
+        margin-bottom: 65px;
+    }
+
+    .order-form {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .form-name {
+        width: 50%;
+        padding: 0;
+        margin-bottom: 20px;
+        text-align: left;
+    }
+
+    .form-email {
+        width: 50%;
+        padding: 0;
+        margin-bottom: 20px;
+        text-align: right;
+    }
+
+    .form-text {
+        width: 100%;
+        padding: 0;
+        margin-bottom: 50px;
+    }
+
+    input[type="text"],
+    input[type="email"] {
+        width: 255px;
+        height: 50px;
+        padding: 17px 10px 18px 20px;
+        margin: 0;
+        border: 0;
+        outline: 0;
+    }
+
+    .order-form textarea {
+        border: 0;
+        outline: 0;
+        width: 100%;
+        height: 175px;
+        padding: 17px 20px 18px;
+        resize: none;
+        margin: 0;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+        font-size: 14px;
+    }
+
+    /* ---------- Footer ---------- */
+    
+    .footer {
+        padding: 50px 0;
+    }
+
+    .footer-inner {
+        align-items: center;
+    }
+
+    .footer-col {
+        padding: 0;
+    }
+
+    .footer-author h3 {
+        font-size: 21px;
+        margin-bottom: 20px;
+        line-height: 1;
+    }
+
+    .footer-author p {
+        font-size: 13px;
+        font-weight: 400;
+        margin: 0;
+        line-height: 1;
+    }
+
+    .footer-social-img {
+        padding: 0 0 0 22px;
+    }
+
+      
+}
