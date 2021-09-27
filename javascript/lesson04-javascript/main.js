@@ -24,15 +24,14 @@ function yourAge() {
     let year;
     let stringResult;
 
-    // name = prompt('Enter your name, please');
+    name = prompt('Enter your name, please');
 
     if (name === null || name === undefined) {
         return 'Good bye!';
     }
 
     while (isNaN(year)) {
-        // year = Number(prompt('Enter your year of birth, please'));
-        year = 1976;
+        year = Number(prompt('Enter your year of birth, please'));
         if (year === 0) {
             return 'Good bye!';
         }
