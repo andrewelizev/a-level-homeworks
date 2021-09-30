@@ -35,3 +35,7 @@ iframe {
 iframe html {
     height: 100%;
 }
+footer img {
+    height: 30px;
+    vertical-align: middle;
+}
