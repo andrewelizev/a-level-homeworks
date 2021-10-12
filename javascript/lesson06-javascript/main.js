@@ -26,7 +26,7 @@ function tableMultiplication (rows, cols) {
     }
 }
 
-tableMultiplication(10, 10);
+tableMultiplication(20, 30);
 
 
 
@@ -55,7 +55,7 @@ mainTable.onmouseover = function(event) {
     let tr = td.parentNode;
     let cellCurrentIndex = td.cellIndex;
 
-    if (td.tagName != 'TD') return;
+    if (td.tagName !== 'TD') return;
 
     for (let i = 0; i < tr.childNodes.length; i++) {
         tr.childNodes[i].style.backgroundColor = 'lightgrey';
