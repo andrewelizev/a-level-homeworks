@@ -14,21 +14,23 @@ console.log('HW1 ==================================================');
 //                    // т. е. измерить время выполнения alert
 // Используйте performance.now()
 
-function makeProfileTimer() {
+function makeProfileTimer(funcForTimer) {
     let timeStart = performance.now();
 
-    alert('Замеряем время работы этого alert');
+    funcForTimer();
 
     let timeEnd = performance.now();
     let result = timeEnd - timeStart;
 
+    console.log(result);
     return result;
 }
 
-let timer = makeProfileTimer;
+function testAlert() {
+    alert('Замеряем время работы этого alert');
+}
 
-alert(timer());
-
+makeProfileTimer(testAlert);
 
 
 console.log('HW2 ==================================================');
@@ -52,16 +54,17 @@ console.log('HW2 ==================================================');
 // Действует лениво, то есть вызывает Math.random только тогда, когда результат действительно нужен. Если же по каким-то причинам
 // значение не понадобится, то Math.random даже не будет вызван
 
-function makeSaver (func) {
-    let num = func();
+function makeSaver(func) {
+    let num;
+    let save = false;
 
-    // return inner = () => num;
-
-    function inner () {
-        return num;
-    }
-
-    return inner;
+    return function() {
+        if (save === true) {
+            return num;
+        }
+        save = true;
+        return num = func();
+    };
 }
 
 let saver = makeSaver(Math.random);
@@ -116,37 +119,35 @@ console.log('HW4 ==================================================');
 // myBind
 // Изучите встроенную функцию bind, и сделайте свою версию, которая позволит определить "значение по умолчанию" не только для первых параметров,
 // но для любых других, например для степени в Math.pow:
-// var pow5 = myBind(Math.pow, Math, [undefined, 5]) // первый параметр - функция для биндинга значений по умолчанию,
-//                                                   // второй - this для этой функции, третий - массив, в котором undefined означает
-//                                                   // параметры, которые должны передаваться при вызове,
-//                                                   // а другие значения являются значениями по умолчанию:
-// var cube = myBind(Math.pow, Math, [undefined, 3]) // cube возводит число в куб
-// pow5(2) // => 32, вызывает Math.pow(2,5), соотнесите с [undefined, 5]
-// cube(3) // => 27
-// var chessMin = myBind(Math.min, Math, [undefined, 4, undefined, 5,undefined, 8,undefined, 9])
-// chessMin(-1,-5,3,15) // вызывает Math.min(-1, 4, -5, 5, 3, 8, 15, 9), результат -5
-// var zeroPrompt = myBind(prompt, window, [undefined, "0"]) // аналогично, только теперь задается "0" как текст по умолчанию в prompt,
-//                                                           // а текст приглашения пользователя задается при вызове zeroPrompt
-// var someNumber = zeroPrompt("Введите число")              // вызывает prompt("Введите число","0")
-// myBind((...params) => params.join(''), null, [undefined, 'b', undefined, undefined, 'e', 'f'])('a','c','d') === 'abcdef'
 // Массив, который идет третьим параметром определяет, какие поля должны подменяться значением по умолчанию, а какие - задаваться в последствии (undefined).
 
-// const myBind = (func, context, arrWithParams) => {
-//     return (...arg) => func.call(
-//         context,
-//         ...arrWithParams.map(it => it !== undefined ? it : arg.shift())
-//     );
-// };
+function myBind(func, context, argMask) {
 
+    return function (...arg) {
 
-var pow5 = myBind(Math.pow, Math, [undefined, 5]);
+        let newArgs = argMask.map(function(item) {
 
-var cube = myBind(Math.pow, Math, [undefined, 3]);
+            if (item === undefined) {
+                return arg.shift();
+            } else {
+                return item;
+            }
 
-pow5(2); // => 32
+        });
+
+    return func.call(context, ...newArgs);
+    };
+}
+
+let pow5 = myBind(Math.pow, Math, [undefined, 5]);
 console.log(pow5(2));
 
-cube(3); // => 27
+let cube = myBind(Math.pow, Math, [undefined, 3]);
 console.log(cube(3));
 
+let chessMin = myBind(Math.min, Math, [undefined, 4, undefined, 5,undefined, 8,undefined, 9]);
+console.log(chessMin(-1,-5,3,15));
 
+let zeroPrompt = myBind(prompt, window, [undefined, "0"]);
+let someNumber = zeroPrompt("Введите число");
+console.log(someNumber);
